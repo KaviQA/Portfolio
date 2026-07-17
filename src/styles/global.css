@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/*
+  Night Bloom design system.
+  Cherry Blossom palette (Figma combination 24) recast for dark ground:
+  the pinks and pale green are treated as light sources on a plum-ink field.
+
+  Shape system: interactive elements are pills, panels are 24px, chips are 8px.
+  Z-index scale: nav 40, skip-link 50. Nothing else is layered.
+*/
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-VariableItalic.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-*: initial;
+
+  /* ground */
+  --color-ink: #140a10;
+  --color-ink-raised: #1d1018;
+  --color-ink-soft: #271722;
+
+  /* type */
+  --color-snow: #fbf5f7;
+  --color-mist: #c9b2bc;
+  --color-faint: #9a8290;
+
+  /* Cherry Blossom palette, verbatim */
+  --color-blossom: #ffb7c5;
+  --color-petal: #f2c7c7;
+  --color-leaf: #d5f3d8;
+  --color-white: #ffffff;
+
+  /* hairlines */
+  --color-line: rgb(255 183 197 / 0.14);
+  --color-line-soft: rgb(255 183 197 / 0.08);
+
+  --font-sans: "Satoshi", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--color-ink-soft) var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-snow);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-blossom);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-blossom);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Lenis smooth-scroll host classes */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1240px;
+  padding-inline: 1.5rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Masked-line wrapper for the hero headline reveal */
+.line-mask {
+  overflow: hidden;
+  padding-bottom: 0.12em; /* keep italic descenders unclipped */
+  margin-bottom: -0.12em;
+}
