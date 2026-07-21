@@ -55,14 +55,14 @@ export function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute -top-1/4 right-[-10%] h-[70vmax] w-[70vmax] rounded-full opacity-[0.13]"
         style={{
-          background: 'radial-gradient(circle, #ffb7c5 0%, transparent 62%)',
+          background: 'radial-gradient(circle, #ffc067 0%, transparent 62%)',
         }}
       />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-[-30%] left-[-15%] h-[55vmax] w-[55vmax] rounded-full opacity-[0.05]"
         style={{
-          background: 'radial-gradient(circle, #d5f3d8 0%, transparent 60%)',
+          background: 'radial-gradient(circle, #66f4ff 0%, transparent 60%)',
         }}
       />
       <div data-hero-canvas className="absolute inset-0">

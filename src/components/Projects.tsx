@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import { gsap, useGSAP, NO_MOTION_PREF } from "../lib/gsap";
 import { useReveal } from "../lib/useReveal";
-import { projects, type Project } from "../data/resume";
+import { projects } from "../data/resume";
+import { ProjectVisual } from "./ProjectVisual";
 
 /*
   Sticky project stack: each card holds the viewport while the next slides
@@ -9,37 +10,6 @@ import { projects, type Project } from "../data/resume";
   covered. Under reduced motion the cards still stack via position: sticky,
   just without the scale choreography.
 */
-
-const VISUALS: Record<Project["visual"], { style: React.CSSProperties; className?: string }> = {
-  rings: {
-    style: {
-      background: [
-        "radial-gradient(circle at 68% 42%, rgb(213 243 216 / 0.26) 0%, transparent 46%)",
-        "repeating-radial-gradient(circle at 68% 42%, rgb(213 243 216 / 0.18) 0px, rgb(213 243 216 / 0.18) 1px, transparent 1px, transparent 52px)",
-        "linear-gradient(160deg, #241722 0%, #1a0f16 100%)",
-      ].join(", "),
-    },
-  },
-  graph: {
-    style: {
-      background: [
-        "radial-gradient(circle at 35% 55%, rgb(255 183 197 / 0.22) 0%, transparent 50%)",
-        "radial-gradient(rgb(255 183 197 / 0.30) 1.2px, transparent 1.6px)",
-        "linear-gradient(200deg, #261320 0%, #180d14 100%)",
-      ].join(", "),
-      backgroundSize: "auto, 30px 30px, auto",
-    },
-  },
-  scan: {
-    style: {
-      background: [
-        "radial-gradient(circle at 60% 30%, rgb(242 199 199 / 0.20) 0%, transparent 52%)",
-        "repeating-linear-gradient(0deg, rgb(255 255 255 / 0.05) 0px, rgb(255 255 255 / 0.05) 1px, transparent 1px, transparent 9px)",
-        "linear-gradient(180deg, #221420 0%, #170c12 100%)",
-      ].join(", "),
-    },
-  },
-};
 
 export function Projects() {
   const ref = useRef<HTMLElement>(null);
@@ -76,7 +46,8 @@ export function Projects() {
           Selected work
         </h2>
         <p data-reveal className="mt-5 max-w-[52ch] leading-relaxed text-mist">
-          Three builds, owned end to end: retrieval, orchestration, backend, and deploy.
+          Six builds, owned end to end: agent observability, workflow automation,
+          voice SaaS, retrieval, orchestration, and deploy.
         </p>
       </div>
 
@@ -112,11 +83,9 @@ export function Projects() {
                     ))}
                   </ul>
                 </div>
-                <div
-                  aria-hidden="true"
-                  className="hidden min-h-[280px] lg:block"
-                  style={VISUALS[project.visual].style}
-                />
+                <div aria-hidden="true" className="hidden min-h-[280px] overflow-hidden lg:block">
+                  <ProjectVisual variant={project.visual} />
+                </div>
               </article>
             </div>
           </div>

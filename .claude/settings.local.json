@@ -4,7 +4,10 @@
       "WebFetch(domain:www.figma.com)",
       "Bash(curl -sL \"https://cdn.sanity.io/images/599r6htc/regionalized/5413b19a1f3c7f664a8a5bc92f3f91b2bfb666ec-1440x868.png?w=1440&h=868&q=75&fit=max&auto=format\" -o /tmp/claude-1000/-home-davjes-Dav-Portfolio/4ad54d6f-6739-4dd6-b4c7-f0cfc216f5ee/scratchpad/cherry-blossom.png)",
       "Bash(npm --version)",
-      "Bash(pkill -f \"vite preview\")"
+      "Bash(pkill -f \"vite preview\")",
+      "Bash(npm run *)",
+      "Bash(grep -rEn \"#[0-9a-fA-F]{3,8}\" src/components src/App.tsx)",
+      "Bash(grep *)"
     ]
   }
 }

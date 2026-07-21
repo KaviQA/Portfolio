@@ -98,10 +98,76 @@ export interface Project {
   points: string[];
   stack: string[];
   /* which generative panel the card renders */
-  visual: 'rings' | 'graph' | 'scan';
+  visual: 'timeline' | 'nodes' | 'wave' | 'rings' | 'graph' | 'scan';
 }
 
 export const projects: Project[] = [
+  {
+    name: 'AgentLens',
+    period: '2026',
+    tagline:
+      'An agentic-AI control panel and observability console: configure a tool-using LLM agent, then watch each run unfold as a live reasoning to tool-call to answer timeline.',
+    points: [
+      'Renders every agent run as a step-by-step timeline over Server-Sent Events, streaming reasoning, tool calls, retrievals, and the final answer in real time.',
+      'Ships a RAG knowledge-base pipeline (PDF upload, parse, chunk, embed) plus MCP tool discovery and custom HTTP webhook tools with schema validation and an SSRF-guarded execution mode.',
+      'Enforces a frozen UI to API contract with ULID entity IDs and one unified SSE event vocabulary driving a single stream consumer.',
+    ],
+    stack: [
+      'Python 3.12',
+      'FastAPI',
+      'MongoDB',
+      'Pydantic v2',
+      'Next.js',
+      'TypeScript',
+      'SSE',
+      'MCP',
+    ],
+    visual: 'timeline',
+  },
+  {
+    name: 'FlowSphere',
+    period: '2026',
+    tagline:
+      'A visual workflow-automation platform with an AI copilot: an n8n/Zapier-class engine that runs user-defined, node-based workflows on schedule, webhook, and wait triggers.',
+    points: [
+      'Executes node-based workflows through an item-based model passing typed data between ports, with a safe {{ }} expression evaluator built on an AST allow-list.',
+      'An AI copilot proposes staged, server-validated graph diffs without mutating saved workflows, validating node types against a registry with the LLM provider injected via config.',
+      'Delivers realtime run observability over WebSockets and Fernet-encrypted, write-only credential storage behind a standardized error envelope.',
+    ],
+    stack: [
+      'Python 3.12',
+      'FastAPI',
+      'SQLAlchemy 2',
+      'PostgreSQL',
+      'Next.js 16',
+      'React Flow',
+      'WebSockets',
+      'APScheduler',
+    ],
+    visual: 'nodes',
+  },
+  {
+    name: 'Loop',
+    period: '2026',
+    tagline:
+      'A multi-tenant AI voice-feedback SaaS: an AI agent auto-calls customers post-service, transcribes the conversation, and converts it into structured insight.',
+    points: [
+      'Turns recorded calls into ratings, sentiment, and NPS across a tenant-scoped backend with JWT auth and owner/admin/agent/viewer role-based access control.',
+      'Built fully async on FastAPI and SQLAlchemy 2.0 (asyncpg), modeling 13+ multi-tenant entities with UUID keys, Alembic migrations, and a reusable generic CRUD base.',
+      'Integrates telephony, STT, and TTS providers (Twilio, Deepgram, ElevenLabs) through a pluggable layer feeding campaign-driven call flows.',
+    ],
+    stack: [
+      'Python',
+      'FastAPI',
+      'SQLAlchemy 2.0',
+      'PostgreSQL',
+      'Alembic',
+      'JWT',
+      'Pydantic v2',
+      'Docker',
+    ],
+    visual: 'wave',
+  },
   {
     name: 'Study Mate AI',
     period: 'Jan - Feb 2026',

@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 /*
-  Night Bloom design system.
-  Cherry Blossom palette (Figma combination 24) recast for dark ground:
-  the pinks and pale green are treated as light sources on a plum-ink field.
+  Pacific Gold design system.
+  California Beaches palette (Figma combination 29) recast for dark ground:
+  sun-gold, aqua and sky-blue are treated as light sources on a deep
+  ocean-navy field, with a slate-blue for muted type.
 
   Shape system: interactive elements are pills, panels are 24px, chips are 8px.
   Z-index scale: nav 40, skip-link 50. Nothing else is layered.
@@ -34,25 +35,26 @@
 @theme {
   --color-*: initial;
 
-  /* ground */
-  --color-ink: #140a10;
-  --color-ink-raised: #1d1018;
-  --color-ink-soft: #271722;
+  /* ground — deep ocean navy */
+  --color-ink: #0a1622;
+  --color-ink-raised: #0f1e2d;
+  --color-ink-soft: #17293b;
 
   /* type */
-  --color-snow: #fbf5f7;
-  --color-mist: #c9b2bc;
-  --color-faint: #9a8290;
+  --color-snow: #f3f8fc;
+  --color-mist: #b3c7d6;
+  --color-faint: #7d99aa;
 
-  /* Cherry Blossom palette, verbatim */
-  --color-blossom: #ffb7c5;
-  --color-petal: #f2c7c7;
-  --color-leaf: #d5f3d8;
+  /* California Beaches palette, verbatim (token names kept for continuity):
+     blossom = sun-gold, petal = sky-blue, leaf = aqua */
+  --color-blossom: #ffc067;
+  --color-petal: #66c4ff;
+  --color-leaf: #66f4ff;
   --color-white: #ffffff;
 
   /* hairlines */
-  --color-line: rgb(255 183 197 / 0.14);
-  --color-line-soft: rgb(255 183 197 / 0.08);
+  --color-line: rgb(102 196 255 / 0.14);
+  --color-line-soft: rgb(102 196 255 / 0.08);
 
   --font-sans: "Satoshi", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;

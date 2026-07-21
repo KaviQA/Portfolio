@@ -25,10 +25,10 @@ interface Petal {
 }
 
 const COLORS = [
-  "255, 183, 197", // blossom
-  "242, 199, 199", // petal
+  "255, 192, 103", // sun-gold
+  "102, 196, 255", // sky-blue
   "255, 255, 255", // white
-  "213, 243, 216", // leaf (rare)
+  "102, 244, 255", // aqua (rare)
 ];
 const COLOR_WEIGHTS = [0.45, 0.3, 0.17, 0.08];
 
@@ -135,7 +135,7 @@ export function PetalCanvas({ className }: { className?: string }) {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(255, 183, 197, ${alpha})`;
+            ctx.strokeStyle = `rgba(255, 192, 103, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
