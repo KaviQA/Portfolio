@@ -26,7 +26,7 @@ export function Skills() {
             className="rounded-3xl border border-blossom/25 p-8 md:col-span-5 md:p-10"
             style={{
               background:
-                "radial-gradient(circle at 20% 0%, rgb(255 183 197 / 0.12) 0%, transparent 55%), linear-gradient(170deg, #251622 0%, #1a0e15 100%)",
+                "radial-gradient(circle at 20% 0%, rgb(255 192 103 / 0.12) 0%, transparent 55%), linear-gradient(170deg, #132434 0%, #0c1826 100%)",
             }}
           >
             <h3 className="text-xl font-medium tracking-tight text-snow">{featured.title}</h3>

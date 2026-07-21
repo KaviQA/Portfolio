@@ -50,7 +50,7 @@ export function Footer() {
         aria-hidden="true"
         className="pointer-events-none absolute bottom-[-45%] left-1/2 h-[60vmax] w-[60vmax] -translate-x-1/2 rounded-full opacity-[0.09]"
         style={{
-          background: 'radial-gradient(circle, #ffb7c5 0%, transparent 60%)',
+          background: 'radial-gradient(circle, #ffc067 0%, transparent 60%)',
         }}
       />
 
