@@ -49,7 +49,7 @@ export function Nav() {
           className="text-[15px] font-semibold tracking-tight text-snow"
           aria-label="Back to top"
         >
-          David<span className="text-blossom"> Johnson</span>
+          Kavi<span className="text-blossom"> B</span>
         </a>
 
         <nav aria-label="Primary" className="flex items-center gap-7">

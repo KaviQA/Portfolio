@@ -64,7 +64,7 @@ export function Footer() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-leaf/60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-leaf" />
           </span>
-          Open to senior AI engineering roles
+          Open to QA Lead & Senior Test Engineer roles
         </p>
 
         <h2
@@ -107,7 +107,7 @@ export function Footer() {
 
       <div className="border-t border-line-soft">
         <div className="container-page flex flex-wrap items-center justify-between gap-3 py-6 text-xs text-faint">
-          <p>© 2026 David Johnson</p>
+          <p>© 2026 Kavi B</p>
           <p>{identity.location}</p>
         </div>
       </div>

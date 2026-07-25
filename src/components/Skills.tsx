@@ -3,7 +3,7 @@ import { useReveal } from "../lib/useReveal";
 import { skillGroups } from "../data/resume";
 
 /*
-  Asymmetric toolbox: the agents layer, David's differentiator, gets the
+  Asymmetric toolbox: the automation layer, Kavi's differentiator, gets the
   featured tinted panel; the supporting layers read as quiet typographic
   columns beside it.
 */

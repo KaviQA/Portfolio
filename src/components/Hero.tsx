@@ -74,22 +74,22 @@ export function Hero() {
           data-hero-fade
           className="font-mono text-xs tracking-[0.22em] text-mist uppercase"
         >
-          David Johnson · AI Engineer
+          Kavi B · Quality Analyst
         </p>
 
         <h1
           data-hero-headline
           className="mt-6 max-w-[12ch] text-[clamp(3rem,9vw,7rem)] leading-[1.02] font-medium tracking-[-0.035em] text-snow"
         >
-          I build AI systems that <em className="text-blossom italic">act</em>.
+          I deliver quality that <em className="text-blossom italic">ships</em>.
         </h1>
 
         <p
           data-hero-fade
           className="mt-8 max-w-[44ch] text-lg leading-relaxed text-mist"
         >
-          Three years engineering RAG pipelines, MCP servers, and LangGraph
-          agents that run in production, not in demos.
+          6+ years of Software Testing experience (Manual & Automation) across
+          retail, supply-chain, e-commerce and education domains.
         </p>
 
         <div data-hero-fade className="mt-11 flex flex-wrap items-center gap-4">

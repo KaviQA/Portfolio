@@ -1,4 +1,4 @@
-# David Johnson — AI Engineer Portfolio
+# Kavi B — Quality Analyst Portfolio
 
 A single-page animated portfolio built around the Figma "Cherry Blossom" palette
 (combination #24: `#F2C7C7`, `#FFFFFF`, `#D5F3D8`, `#FFB7C5`), recast as a dark
