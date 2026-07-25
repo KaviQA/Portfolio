@@ -39,6 +39,23 @@ export function Hero() {
           duration: 2,
           ease: 'power2.inOut',
         });
+        gsap.to('[data-hero-glow-a]', {
+          x: 40,
+          y: -20,
+          duration: 10,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1,
+        });
+        gsap.to('[data-hero-glow-b]', {
+          x: -30,
+          y: 24,
+          duration: 13,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1,
+          delay: 1,
+        });
       });
     },
     { scope: ref },
@@ -50,19 +67,22 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[100dvh] items-center overflow-hidden"
     >
-      {/* atmosphere */}
+      {/* atmosphere — gold + violet, matching the accent family used across
+          Skills and the project visuals, instead of a standalone color */}
       <div
+        data-hero-glow-a
         aria-hidden="true"
-        className="pointer-events-none absolute -top-1/4 right-[-10%] h-[70vmax] w-[70vmax] rounded-full opacity-[0.13]"
+        className="pointer-events-none absolute -top-1/4 right-[-10%] h-[70vmax] w-[70vmax] rounded-full opacity-[0.16]"
         style={{
-          background: 'radial-gradient(circle, #19cbc5ff 0%, transparent 62%)',
+          background: 'radial-gradient(circle, #ffc067 0%, transparent 62%)',
         }}
       />
       <div
+        data-hero-glow-b
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-30%] left-[-15%] h-[55vmax] w-[55vmax] rounded-full opacity-[0.05]"
+        className="pointer-events-none absolute bottom-[-30%] left-[-15%] h-[55vmax] w-[55vmax] rounded-full opacity-[0.11]"
         style={{
-          background: 'radial-gradient(circle, #0cc6b5ff 0%, transparent 60%)',
+          background: 'radial-gradient(circle, #b98bff 0%, transparent 60%)',
         }}
       />
       <div data-hero-canvas className="absolute inset-0">
@@ -74,14 +94,14 @@ export function Hero() {
           data-hero-fade
           className="font-mono text-xs tracking-[0.22em] text-mist uppercase"
         >
-          Kavi B · Quality Analyst
+          KAVI B • QA AUTOMATION ENGINEER
         </p>
 
         <h1
           data-hero-headline
           className="mt-6 max-w-[12ch] text-[clamp(3rem,9vw,7rem)] leading-[1.02] font-medium tracking-[-0.035em] text-snow"
         >
-          I deliver quality that <em className="text-blossom italic">ships</em>.
+          I build quality that users <em className="text-blossom italic">trust</em>.
         </h1>
 
         <p

@@ -6,10 +6,13 @@ import { experience } from "../data/resume";
 /*
   Two roles, told like chapters: the role meta stays pinned on the left
   while the work scrolls by on the right. A blossom filament grows down the
-  rail as the reader moves through the years.
+  rail as the reader moves through the years, with a small glowing marker
+  riding its leading edge — the fill shows where you've been, the marker
+  shows where you are.
 */
 export function Experience() {
   const ref = useRef<HTMLElement>(null);
+
   useReveal(ref);
 
   useGSAP(
@@ -27,6 +30,10 @@ export function Experience() {
               start: "top 65%",
               end: "bottom 55%",
               scrub: 0.6,
+              onUpdate: (self) => {
+                const dot = document.querySelector<HTMLElement>("[data-rail-dot]");
+                if (dot) dot.style.top = `${self.progress * 100}%`;
+              },
             },
           },
         );
@@ -48,6 +55,12 @@ export function Experience() {
             <div
               data-rail-fill
               className="h-full w-full origin-top bg-gradient-to-b from-blossom via-petal to-transparent"
+            />
+            <div
+              data-rail-dot
+              aria-hidden="true"
+              className="absolute left-1/2 hidden h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blossom shadow-[0_0_12px_3px_rgba(255,192,103,0.65)] md:block"
+              style={{ top: "0%" }}
             />
           </div>
 
@@ -71,7 +84,7 @@ export function Experience() {
                     {role.chips.map((chip) => (
                       <li
                         key={chip}
-                        className="rounded-lg border border-line px-2.5 py-1 font-mono text-xs text-petal"
+                        className="rounded-lg border border-line px-2.5 py-1 font-mono text-xs text-petal transition-colors duration-300 hover:border-blossom/40 hover:text-blossom"
                       >
                         {chip}
                       </li>

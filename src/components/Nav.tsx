@@ -42,14 +42,30 @@ export function Nav() {
       ref={ref}
       className="fixed inset-x-0 top-0 z-40 border-b border-transparent transition-colors duration-500 [&.nav-scrolled]:border-line-soft [&.nav-scrolled]:bg-ink/75 [&.nav-scrolled]:backdrop-blur-xl"
     >
+      <style>
+        {`
+          @media (prefers-reduced-motion: no-preference) {
+            @keyframes nav-logo-shimmer { to { background-position: 200% center; } }
+            .nav-logo-mark {
+              background-image: linear-gradient(100deg, currentColor 30%, #ffe3b0 45%, currentColor 60%);
+              background-size: 220% auto;
+              -webkit-background-clip: text;
+              background-clip: text;
+              color: transparent;
+              animation: nav-logo-shimmer 3.2s ease-in-out infinite;
+            }
+          }
+        `}
+      </style>
+
       <div className="container-page flex h-[68px] items-center justify-between">
         <a
           href="#top"
           onClick={handleAnchor}
-          className="text-[15px] font-semibold tracking-tight text-snow"
+          className="text-[20px] font-semibold tracking-tight text-snow"
           aria-label="Back to top"
         >
-          Kavi<span className="text-blossom"> B</span>
+          Kavi<span className="nav-logo-mark text-blossom"> B</span>
         </a>
 
         <nav aria-label="Primary" className="flex items-center gap-7">
@@ -59,9 +75,13 @@ export function Nav() {
                 <a
                   href={l.href}
                   onClick={handleAnchor}
-                  className="text-sm text-mist transition-colors duration-300 hover:text-snow"
+                  className="group relative py-1 text-sm text-mist transition-colors duration-300 hover:text-snow"
                 >
                   {l.label}
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-gradient-to-r from-blossom via-sky-300 to-violet-300 transition-transform duration-300 ease-out group-hover:scale-x-100"
+                  />
                 </a>
               </li>
             ))}
@@ -69,7 +89,7 @@ export function Nav() {
           <a
             href={identity.resumeFile}
             download
-            className="rounded-full border border-line px-4 py-2 text-sm font-medium text-snow transition-all duration-300 hover:border-blossom/50 hover:bg-blossom/10 active:scale-[0.98]"
+            className="rounded-full border border-line px-4 py-2 text-sm font-medium text-snow transition-all duration-300 hover:border-blossom/50 hover:bg-blossom/10 hover:shadow-[0_0_24px_-6px_rgba(255,192,103,0.55)] active:scale-[0.98]"
           >
             Resume
           </a>

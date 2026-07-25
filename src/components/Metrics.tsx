@@ -7,7 +7,13 @@ import { metrics } from "../data/resume";
   hero makes. Numbers count up once as the strip enters view; under reduced
   motion the final values are simply there, because they are rendered in
   the markup.
+
+  v2: each number gets one of three accent colors (gold/sky/violet) in
+  rotation instead of a single flat color, and flashes a brief glow the
+  instant its count finishes — a small reward for reading down the row.
 */
+const ACCENTS = ["#ffc067", "#7dd3fc", "#c4b5fd"];
+
 export function Metrics() {
   const ref = useRef<HTMLElement>(null);
 
@@ -27,6 +33,13 @@ export function Metrics() {
             scrollTrigger: { trigger: el, start: "top 88%" },
             onUpdate() {
               el.textContent = `${prefix}${Math.round(state.n)}${suffix}`;
+            },
+            onComplete() {
+              gsap.fromTo(
+                el,
+                { textShadow: "0 0 22px currentColor" },
+                { textShadow: "0 0 0px currentColor", duration: 0.9, ease: "power2.out" },
+              );
             },
           });
         });
@@ -50,16 +63,16 @@ export function Metrics() {
           <div
             key={m.label}
             data-metric
-            className={`py-12 pr-6 md:py-16 ${i > 0 ? "lg:border-l lg:border-line-soft lg:pl-10" : ""} ${
-              i % 2 === 1 ? "border-l border-line-soft pl-6 lg:border-l" : ""
-            }`}
+            className={`group py-12 pr-6 transition-colors duration-300 md:py-16 ${i > 0 ? "lg:border-l lg:border-line-soft lg:pl-10" : ""} ${i % 2 === 1 ? "border-l border-line-soft pl-6 lg:border-l" : ""
+              }`}
           >
             <p
               data-count
               data-value={m.value}
               data-prefix={m.prefix}
               data-suffix={m.suffix}
-              className="font-mono text-4xl font-medium tracking-tight text-blossom md:text-5xl"
+              className="font-mono text-4xl font-medium tracking-tight transition-transform duration-300 group-hover:scale-[1.04] md:text-5xl"
+              style={{ color: ACCENTS[i % ACCENTS.length] }}
             >
               {m.prefix}
               {m.value}

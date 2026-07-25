@@ -53,6 +53,13 @@ export function Footer() {
           background: 'radial-gradient(circle, #ffc067 0%, transparent 60%)',
         }}
       />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-[-30%] right-[-10%] h-[42vmax] w-[42vmax] rounded-full opacity-[0.07]"
+        style={{
+          background: 'radial-gradient(circle, #b98bff 0%, transparent 62%)',
+        }}
+      />
 
       <div className="container-page relative py-28 text-center md:py-40">
         <p
@@ -71,15 +78,15 @@ export function Footer() {
           data-reveal
           className="mx-auto mt-8 max-w-[16ch] text-[clamp(2.5rem,7vw,5.5rem)] leading-[1.05] font-medium tracking-[-0.03em] text-snow"
         >
-          Let's build something that{' '}
-          <em className="text-blossom italic">thinks</em>.
+          Building confidence through{' '}
+          <em className="text-blossom italic">Quality & Automation</em>.
         </h2>
 
         <div data-reveal className="mt-12">
           <Magnetic>
             <a
               href={`mailto:${identity.email}`}
-              className="inline-flex items-center rounded-full bg-blossom px-8 py-4 text-base font-semibold text-ink transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
+              className="inline-flex items-center rounded-full bg-blossom px-8 py-4 text-base font-semibold text-ink transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_36px_-6px_rgba(255,192,103,0.7)] active:scale-[0.98]"
             >
               Get in touch
             </a>
@@ -95,9 +102,14 @@ export function Footer() {
               <a
                 href={href}
                 {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
-                className="inline-flex items-center gap-2 text-sm text-mist transition-colors duration-300 hover:text-blossom"
+                className="group inline-flex items-center gap-2 text-sm text-mist transition-colors duration-300 hover:text-blossom"
               >
-                <Icon size={18} weight="regular" aria-hidden="true" />
+                <Icon
+                  size={18}
+                  weight="regular"
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
+                />
                 {label}
               </a>
             </li>

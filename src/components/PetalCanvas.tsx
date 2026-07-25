@@ -8,6 +8,11 @@ import { useEffect, useRef } from "react";
   Rendering is plain Canvas 2D, driven outside React entirely. The loop
   pauses when the tab is hidden or the hero leaves the viewport, and reduced
   motion collapses to a single static frame with no links.
+
+  v2: added a violet strand to the palette (matches the Skills/ProjectVisual
+  accent so the whole site reads as one family), and a soft glow on the
+  pointer constellation so it feels like it's lighting up rather than just
+  drawing lines.
 */
 
 interface Petal {
@@ -28,9 +33,10 @@ const COLORS = [
   "255, 192, 103", // sun-gold
   "102, 196, 255", // sky-blue
   "255, 255, 255", // white
+  "185, 139, 255", // violet
   "102, 244, 255", // aqua (rare)
 ];
-const COLOR_WEIGHTS = [0.45, 0.3, 0.17, 0.08];
+const COLOR_WEIGHTS = [0.4, 0.26, 0.16, 0.12, 0.06];
 
 function pickColor() {
   const r = Math.random();
@@ -124,18 +130,22 @@ export function PetalCanvas({ className }: { className?: string }) {
           const dy = p.y - pointer.y;
           return dx * dx + dy * dy < LINK_R * LINK_R;
         });
+
+        ctx.save();
+        ctx.shadowColor = "rgba(255, 192, 103, 0.55)";
+        ctx.shadowBlur = 6;
         for (let i = 0; i < near.length; i++) {
           for (let j = i + 1; j < near.length; j++) {
             const a = near[i];
             const b = near[j];
             const da = 1 - Math.hypot(a.x - pointer.x, a.y - pointer.y) / LINK_R;
             const db = 1 - Math.hypot(b.x - pointer.x, b.y - pointer.y) / LINK_R;
-            const alpha = da * db * 0.38;
+            const alpha = da * db * 0.4;
             if (alpha < 0.02) continue;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(255, 192, 103, ${alpha})`;
+            ctx.strokeStyle = `rgba(185, 139, 255, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -144,10 +154,11 @@ export function PetalCanvas({ className }: { className?: string }) {
         for (const p of near) {
           const d = 1 - Math.hypot(p.x - pointer.x, p.y - pointer.y) / LINK_R;
           ctx.beginPath();
-          ctx.arc(p.x, p.y, 1.6 + d * 1.6, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${d * 0.55})`;
+          ctx.arc(p.x, p.y, 1.6 + d * 1.8, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${d * 0.6})`;
           ctx.fill();
         }
+        ctx.restore();
       }
 
       for (const p of petals) drawPetal(ctx, p);
